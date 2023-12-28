@@ -1,7 +1,7 @@
 import {movies} from './DB.js';
 
 let globalVariables = {
-    searchString : document.getElementById("searchstring"),
+    searchString : document.getElementById("searchString"),
     buttonSearch : document.getElementById("button_search"),
     buttonYearUp : document.getElementById("button_yearUp"),
     buttonYearDown : document.getElementById("button_yearDown"),
@@ -49,17 +49,17 @@ const loadMovies = (v) => {
 
 // Definition der Funktion searchMovie
 
-const searchMovie = (v) => {
+const searchMovie = () => {
 
-    v.searchString == null
-    ? v.searchString = document.getElementById("searchstring")
-    : null;
+    globalVariables.searchString = document.getElementById("searchString")
 
-    // console.log(v.searchString.value);
+    const filterArr = movies.filter((movie => movie[0].includes(globalVariables.searchString.value)))
 
-    const filterArr = movies.filter((movie => movie[0] == v.searchString.value))
+    globalVariables.movieSection.innerHTML = null;
 
-    console.log(filterArr);
+    filterArr.forEach(movie => {
+        globalVariables.movieSection.innerHTML += getDivMovie(movie);
+    });
 }
 
 
@@ -69,5 +69,5 @@ const searchMovie = (v) => {
 
 loadMovies(globalVariables);
 
-globalVariables.buttonSearch.addEventListener("click", searchMovie(globalVariables))
+globalVariables.buttonSearch.addEventListener("click", () => searchMovie())
 // globalVariables.searchString.addEventListener("keydown", searchMovie(globalVariables));

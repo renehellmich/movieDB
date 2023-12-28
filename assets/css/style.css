@@ -68,7 +68,7 @@ body .section__movies {
 }
 body .section__movies .div__movieContainer {
   height: 420px;
-  min-width: "";
+  min-width: 320px;
   width: calc(33.3333333333% - 80px);
   max-width: "";
   display: flex;
