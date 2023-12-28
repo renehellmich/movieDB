@@ -11,10 +11,20 @@
     <p>The best MovieDB</p>
     <div class="div__getFilter">
         <input type="text" name="searchstring" id="searchString" class="divFilterDef">
+        <select name="" id="genreSelection" style="display: none;" multiple="multiple" size="6"></select>
+        <select name="" id="yearSelection" style="display: none;" multiple="multiple" size="6"></select>
         <button type="button" id="button_search" class="divFilterDef">SEARCH</button>
         <button type="button" id="button_yearUp" class="button__filter divFilterDef">YEAR UP</button>
         <button type="button" id="button_yearDown" class="button__filter divFilterDef">YEAR DOWN</button>
         <button type="button" id="button_bestRate" class="button__filter divFilterDef">BEST RATE</button>
+    </div>
+    <div class="div__Radio">
+        <input type="radio" name="filter" id="filterText" value="filterText" checked>
+        <label for="filterText">Text</label>
+        <input type="radio" name="filter" id="filterGenre" value="filterGenre">
+        <label for="filterGenre">Genre</label>
+        <input type="radio" name="filter" id="filterYear" value="filterYear">
+        <label for="filterYear">Jahr</label>
     </div>
     <section class="section__movies">
         <!-- <div class="div__movieContainer">

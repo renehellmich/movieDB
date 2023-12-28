@@ -31,6 +31,16 @@ body {
             grid-column-start: 1;
             grid-column-end: 3;
         }
+        #genreSelection {
+            grid-area: "genreSelection";
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+        #yearSelection {
+            grid-area: "yearSelection";
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
         #button_search {
             grid-area: "searchButton";
             background-color: var.$color-orange;

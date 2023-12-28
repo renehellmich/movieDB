@@ -37,6 +37,16 @@ body .div__getFilter #searchString {
   grid-column-start: 1;
   grid-column-end: 3;
 }
+body .div__getFilter #genreSelection {
+  grid-area: "genreSelection";
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+body .div__getFilter #yearSelection {
+  grid-area: "yearSelection";
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
 body .div__getFilter #button_search {
   grid-area: "searchButton";
   background-color: rgb(234, 107, 61);
