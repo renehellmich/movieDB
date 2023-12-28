@@ -1,0 +1,14 @@
+@mixin displaySettings($display, $direction, $justify, $items, $gap) {
+    display: $display;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $items;
+    gap: $gap;
+}
+
+@mixin HW($height, $minW, $width, $maxW) {
+    height: $height;
+    min-width: $minW;
+    width: $width;
+    max-width: $maxW;
+}

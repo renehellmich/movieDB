@@ -2,3 +2,23 @@
 @use 'mixin' as mix;
 @import 'fonts.scss';
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+
+    .section__movies {
+        @include mix.displaySettings(flex, row, center, center, 16px);
+        flex-wrap: wrap;
+
+        .div__movieContainer {
+            @include mix.HW(240px, calc(100% / 3 - var.$global-padding), "", "");
+            @include mix.displaySettings(flex, column, center, center, 16px);
+            flex-wrap: wrap;
+        }
+    }
+}

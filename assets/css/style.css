@@ -1,3 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body .section__movies {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+body .section__movies .div__movieContainer {
+  height: 240px;
+  min-width: calc(33.3333333333% - 32px);
+  width: "";
+  max-width: "";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
 
 /*# sourceMappingURL=style.css.map */

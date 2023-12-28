@@ -1,28 +1,16 @@
 import {movies} from './DB.js';
 
-const loadVariables = () => {
-    const searchString = document.getElementById("searchstring");
-    const buttonSearch = document.getElementById("button_search");
-    const buttonYearUp = document.getElementById("button_yearUp");
-    const buttonYearDown = document.getElementById("button_yearDown");
-    const buttonBestRate = document.getElementById("button_bestRate");
+const globalVariables = {
+    searchString : document.getElementById("searchstring"),
+    buttonSearch : document.getElementById("button_search"),
+    buttonYearUp : document.getElementById("button_yearUp"),
+    buttonYearDown : document.getElementById("button_yearDown"),
+    buttonBestRate : document.getElementById("button_bestRate"),
 
-    const movieSection = document.getElementsByClassName("section__movies");
-
-
-    /*
-    const movieContainer = document.getElementsByClassName("div__movieContainer");
-    const movieHead = document.getElementsByClassName("movieHead");
-    const movieYear = document.getElementsByClassName("movieYear");
-    const movieAuthor = document.getElementsByClassName("movieAuthor");
-    const movieLength = document.getElementsByClassName("movieLength");
-    const movieGenre = document.getElementsByClassName("movieGenre");
-    const movieRate = document.getElementsByClassName("movieRate");
-    */
-
-    return object
-
+    movieSection: document.querySelector(".section__movies"),
 }
+
+console.log(globalVariables);
 
 const getDivMovie = (object) => {
 
@@ -40,20 +28,20 @@ const getDivMovie = (object) => {
     </div>
     `
 
-    console.log(movie);
+    // console.log(movie);
     return movie
 }
 
 const loadMovies = (v) => {
 
-    console.log(this.movieSection.innerHTML);
+    // console.log(v.movieSection);
 
     movies.forEach((movie) => {
         console.log(movie);
         v.movieSection.innerHTML += getDivMovie(movie)
     });
 
+    console.log(v.movieSection.innerHTML);
 }
 
-loadVariables();
-loadMovies(loadVariables)
+loadMovies(globalVariables);
