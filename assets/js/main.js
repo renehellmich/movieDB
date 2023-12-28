@@ -1,5 +1,5 @@
 import { movies } from './DB.js';
-import { selectOptions } from './options.js';
+import { /*searchFunction,*/ selectOptions } from './options.js';
 import { globalVariables, radioOptions } from './variables.js';
 
 
@@ -10,14 +10,14 @@ const getSelectOptions = () => {
     const yearArr = Array.from(new Set(movies.map((e) => e[1]).join().split(","))).sort();
 
     console.log(yearArr);
-    
+
     genreArr.forEach(genre => {
         // console.log(genre);
-        genreSelection.innerHTML += `<option value='${genre.value}'>${genre[0].toUpperCase()}${genre.slice(1)}</option>`
+        genreSelection.innerHTML += `<option class='optionGenre' value='${genre}'>${genre[0].toUpperCase()}${genre.slice(1)}</option>`
     });
 
     yearArr.forEach(year => {
-        yearSelection.innerHTML += `<option value='${year.value}'>${year[0].toUpperCase()}${year.slice(1)}</option>`
+        yearSelection.innerHTML += `<option class='optionYear' value='${year}'>${year[0].toUpperCase()}${year.slice(1)}</option>`
     });
 }
 
@@ -30,12 +30,14 @@ const checkRadioOptions = () => {
     let rValue = null;
 
     radio.forEach(e => {
-        e.checked 
-        ? rValue = e.value
-        : null;
+        e.checked
+            ? rValue = e.value
+            : null;
     });
 
     selectOptions(rValue);
+
+    return rValue;
 
     console.log(rValue);
 }
@@ -87,11 +89,73 @@ const loadMovies = () => {
 
 const searchMovie = () => {
 
-    globalVariables.searchString = document.getElementById("searchString")
+    const selectRadio = checkRadioOptions();
+    console.log(`Radio: ${selectRadio}`);
 
-    const filterArr = movies.filter((movie => movie[0].includes(globalVariables.searchString.value)))
+    // searchFunction(selectRadio)
+    let filterArr = []
+    let checkedArr = []
+    let checkedMap = []
 
-    sendArrtoDiv(filterArr)
+    let backValue = false;
+
+    switch (selectRadio) {
+
+
+        case "filterText":
+
+            globalVariables.searchString = document.getElementById("searchString")
+            filterArr = movies.filter((movie => movie[0].includes(globalVariables.searchString.value)))
+            console.log(filterArr);
+            sendArrtoDiv(filterArr)
+
+            break;
+        case "filterGenre":
+
+            checkedArr = Array.from(document.querySelectorAll(".optionGenre")).filter(option => option.selected)
+            console.log(checkedArr);
+
+            checkedMap = checkedArr.map(option => option.value)
+            console.log(checkedMap.join());
+
+            // filterArr = movies.filter(movie => movie[4].join().includes(checkedMap.join()))
+
+            filterArr = movies.filter(movie => {
+                const genreArr = movie[4].map(e => e.includes(checkedMap))
+                console.log(genreArr);
+
+                genreArr.join().includes("true")
+                ? backValue = true
+                : backValue = false;
+
+                console.log(backValue);
+                if (backValue === true) {
+                    return movie;
+                } else {
+                    backValue = false;
+                }
+
+            })
+
+            console.log(filterArr);
+            sendArrtoDiv(filterArr);
+            
+            break;
+        case "filterYear":
+            checkedArr = Array.from(document.querySelectorAll(".optionYear")).filter(option => option.selected)
+            console.log(checkedArr);
+
+            checkedMap = checkedArr.map(option => option.value)
+            console.log(checkedMap.join());
+
+
+            filterArr = movies.filter(movie => movie[1].includes(checkedMap.join()))
+            console.log(filterArr);
+            sendArrtoDiv(filterArr);
+
+            break;
+    }
+
 
 }
 

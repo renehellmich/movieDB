@@ -20,5 +20,21 @@ export function selectOptions (value) {
             globalVariables.yearSelection.style.display = "block";
             break;
     }
-
 }
+
+/*
+export function searchFunction (value) {
+    switch(value) {
+        case "filterText":
+            
+            break;
+        case "filterGenre":
+            
+
+            break;
+        case "filterYear":
+            
+            break;
+    }
+}
+*/
