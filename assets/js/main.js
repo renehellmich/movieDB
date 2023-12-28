@@ -61,6 +61,38 @@ const searchMovie = () => {
         globalVariables.movieSection.innerHTML += getDivMovie(movie);
     });
 }
+const yearUp = () => {
+
+    const filterArr = movies.sort((a,b) => a[1] - b[1]);
+
+    globalVariables.movieSection.innerHTML = null;
+
+    filterArr.forEach(movie => {
+        globalVariables.movieSection.innerHTML += getDivMovie(movie);
+    });
+
+}
+
+const yearDown = () => {
+    const filterArr = movies.sort((a,b) => - a[1] + b[1]);
+
+    globalVariables.movieSection.innerHTML = null;
+
+    filterArr.forEach(movie => {
+        globalVariables.movieSection.innerHTML += getDivMovie(movie);
+    });
+}
+
+const bestRate = () => {
+    const filterArr = movies.sort((a,b) => - parseFloat(a[5]) + parseFloat(b[5]));
+
+    globalVariables.movieSection.innerHTML = null;
+
+    filterArr.forEach(movie => {
+        globalVariables.movieSection.innerHTML += getDivMovie(movie);
+    });
+}
+
 
 
 
@@ -69,5 +101,8 @@ const searchMovie = () => {
 
 loadMovies(globalVariables);
 
-globalVariables.buttonSearch.addEventListener("click", () => searchMovie())
+globalVariables.buttonSearch.addEventListener("click", () => searchMovie());
+globalVariables.buttonYearUp.addEventListener("click", () => yearUp());
+globalVariables.buttonYearDown.addEventListener("click", () => yearDown());
+globalVariables.buttonBestRate.addEventListener("click", () => bestRate());
 // globalVariables.searchString.addEventListener("keydown", searchMovie(globalVariables));
