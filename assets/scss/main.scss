@@ -7,16 +7,52 @@
     padding: 0;
     box-sizing: border-box;
 
-    @include mix.HW("", "", "", var.$global-width)
+    @include mix.HW("", "", "", var.$global-width);
+    background-color: var.$global-background;
 }
 
 body {
-    @include mix.displaySettings(flex, column, center, center, "");
+    @include mix.displaySettings(flex, column, center, center, 32px);
 
     .div__getFilter {
         @include mix.HW("", "", "", "");
         @include mix.displaySettings(grid, "", "", "", "");
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 
+        "searchString searchString searchButton"
+        "yearUp yearDown bestRate";
         flex-wrap: wrap;
+
+        column-gap: 8px;
+        row-gap: 4px;
+
+        #searchString {
+            grid-area: "searchString";
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+        #button_search {
+            grid-area: "searchButton";
+            background-color: var.$color-orange;
+        }
+        #button_yearUp {
+            grid-area: "yearUp"
+        }
+        #button_yearDown {
+            grid-area: "yearDown"
+        }
+        #button_bestRate {
+            grid-area: "bestRate"
+        }
+
+        .divFilterDef {
+            padding: 8px 32px;
+            border-radius: 16px;
+            border: none;
+        }
+        .button__filter {
+            border: 2px solid var.$color-orange;
+        }
     }
 
     .section__movies {
@@ -33,8 +69,9 @@ body {
 
             padding: var.$div-padding;
             
-            h2 {
+            .ContainerDefChild {
                 text-align: center;
+                background-color: rgba(var.$div-background, 0);
             }
         }
     }

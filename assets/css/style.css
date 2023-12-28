@@ -6,6 +6,7 @@
   min-width: "";
   width: "";
   max-width: 1920px;
+  background-color: rgb(244, 244, 244);
 }
 
 body {
@@ -13,7 +14,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: "";
+  gap: 32px;
 }
 body .div__getFilter {
   height: "";
@@ -25,7 +26,37 @@ body .div__getFilter {
   justify-content: "";
   align-items: "";
   gap: "";
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "searchString searchString searchButton" "yearUp yearDown bestRate";
   flex-wrap: wrap;
+  column-gap: 8px;
+  row-gap: 4px;
+}
+body .div__getFilter #searchString {
+  grid-area: "searchString";
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+body .div__getFilter #button_search {
+  grid-area: "searchButton";
+  background-color: rgb(234, 107, 61);
+}
+body .div__getFilter #button_yearUp {
+  grid-area: "yearUp";
+}
+body .div__getFilter #button_yearDown {
+  grid-area: "yearDown";
+}
+body .div__getFilter #button_bestRate {
+  grid-area: "bestRate";
+}
+body .div__getFilter .divFilterDef {
+  padding: 8px 32px;
+  border-radius: 16px;
+  border: none;
+}
+body .div__getFilter .button__filter {
+  border: 2px solid rgb(234, 107, 61);
 }
 body .section__movies {
   display: flex;
@@ -51,8 +82,9 @@ body .section__movies .div__movieContainer {
   background-color: rgb(206, 215, 138);
   padding: 32px;
 }
-body .section__movies .div__movieContainer h2 {
+body .section__movies .div__movieContainer .ContainerDefChild {
   text-align: center;
+  background-color: rgba(206, 215, 138, 0);
 }
 
 /*# sourceMappingURL=style.css.map */
