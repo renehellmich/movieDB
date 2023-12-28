@@ -12,3 +12,10 @@
     width: $width;
     max-width: $maxW;
 }
+
+@mixin color($color, $brackground) {
+    color: $color;
+    background-color: $brackground;
+}
+
+// 206,215,138

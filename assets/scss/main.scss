@@ -6,19 +6,36 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    @include mix.HW("", "", "", var.$global-width)
 }
 
 body {
+    @include mix.displaySettings(flex, column, center, center, "");
 
+    .div__getFilter {
+        @include mix.HW("", "", "", "");
+        @include mix.displaySettings(grid, "", "", "", "");
+        flex-wrap: wrap;
+    }
 
     .section__movies {
         @include mix.displaySettings(flex, row, center, center, 16px);
         flex-wrap: wrap;
 
         .div__movieContainer {
-            @include mix.HW(240px, calc(100% / 3 - var.$global-padding), "", "");
+            @include mix.HW(420px, "", calc(100% / 3 - var.$global-padding), "");
             @include mix.displaySettings(flex, column, center, center, 16px);
             flex-wrap: wrap;
+            border-radius: 16px;
+
+            @include mix.color(black, var.$div-background);
+
+            padding: var.$div-padding;
+            
+            h2 {
+                text-align: center;
+            }
         }
     }
 }
