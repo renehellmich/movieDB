@@ -34,18 +34,23 @@ const getDivMovie = (object) => {
     return movie
 }
 
+// Arrow Funktion zum Aufbau der Containerdarstellun
+
+const sendArrtoDiv = (Arr) => {
+
+    globalVariables.movieSection.innerHTML = null;
+
+    Arr.forEach(movie => {
+        globalVariables.movieSection.innerHTML += getDivMovie(movie);
+    });
+}
 // Definition der Funktion loadMovies
 
-const loadMovies = (v) => {
+const loadMovies = () => {
 
-    // console.log(v.movieSection);
-
-    movies.forEach((movie) => {
-        // console.log(movie);
-        v.movieSection.innerHTML += getDivMovie(movie)
-    });
-
+    sendArrtoDiv(movies)
 }
+
 
 // Definition der Funktion searchMovie
 
@@ -55,51 +60,49 @@ const searchMovie = () => {
 
     const filterArr = movies.filter((movie => movie[0].includes(globalVariables.searchString.value)))
 
-    globalVariables.movieSection.innerHTML = null;
+    sendArrtoDiv(filterArr)
 
-    filterArr.forEach(movie => {
-        globalVariables.movieSection.innerHTML += getDivMovie(movie);
-    });
 }
+
+// Definition der Funktion yearUp
+
 const yearUp = () => {
 
     const filterArr = movies.sort((a,b) => a[1] - b[1]);
 
-    globalVariables.movieSection.innerHTML = null;
-
-    filterArr.forEach(movie => {
-        globalVariables.movieSection.innerHTML += getDivMovie(movie);
-    });
-
+    sendArrtoDiv(filterArr)
 }
+
+// Definition der Funktion yearDown
 
 const yearDown = () => {
     const filterArr = movies.sort((a,b) => - a[1] + b[1]);
 
-    globalVariables.movieSection.innerHTML = null;
+    sendArrtoDiv(filterArr)
 
-    filterArr.forEach(movie => {
-        globalVariables.movieSection.innerHTML += getDivMovie(movie);
-    });
 }
+
+// Definition der Funktion bestRate
 
 const bestRate = () => {
     const filterArr = movies.sort((a,b) => - parseFloat(a[5]) + parseFloat(b[5]));
 
-    globalVariables.movieSection.innerHTML = null;
+    sendArrtoDiv(filterArr)
 
-    filterArr.forEach(movie => {
-        globalVariables.movieSection.innerHTML += getDivMovie(movie);
-    });
 }
 
 
-
+// Next Steps:
+/*
+    - Input Radio Buttons, wonach gefiltert werden soll
+    - Input neuer Film
+    - eigenständiges Design
+*/ 
 
 
 // Funktionsaufrufe
 
-loadMovies(globalVariables);
+loadMovies();
 
 globalVariables.buttonSearch.addEventListener("click", () => searchMovie());
 globalVariables.buttonYearUp.addEventListener("click", () => yearUp());
