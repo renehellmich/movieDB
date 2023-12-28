@@ -7,8 +7,26 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    
+    <h1>Movies for you</h1>
+    <p>The best MovieDB</p>
+    <div class="div__getFilter">
+        <input type="text" name="searchstring" id="searchString">
+        <button type="button" id="button_search">SEARCH</button>
+        <button type="button" id="button_yearUp" class="button__filter">YEAR UP</button>
+        <button type="button" id="button_yearDown" class="button__filter">YEAR DOWN</button>
+        <button type="button" id="button_bestRate" class="button__filter">BEST RATE</button>
+    </div>
+    <section class="section__movies">
+        <div class="div__movieContainer">
+            <h2 class="movieHead"></h2>
+            <p class="movieYear"></p>
+            <h3 class="movieAuthor"></h3>
+            <p class="movieLength"></p>
+            <p class="movieGenre"></p>
+            <p class="movieRate"></p>
+        </div>
+    </section>
 
-    <script src="./assets/js/main.js"></script>
+    <script type="module" src="./assets/js/main.js"></script>
 </body>
 </html>
