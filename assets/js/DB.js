@@ -1,4 +1,4 @@
-export const movies = [
+export let movies = [
     [
         'The Shawshank Redemption',
         '1994',

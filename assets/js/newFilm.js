@@ -34,14 +34,36 @@ export function getMovieInDatabase() {
 
     console.log(newItem);
 
-    let xhr = new XMLHttpRequest();
+    let http = new XMLHttpRequest();
 
-    xhr.open('GET', './DB.js', )
+    http.open('GET', 'assets/js/DB.js', true)
 
-    xhr.onload = function() {
-        if (xhr.status >= 200 && xhr.status <= 300) {
+    http.send();
 
+    http.onload = function() {
+        if (http.status != 200) {
+            alert(`Error ${http.status}`)
+        } else {
+            let existingData = http.responseText
+            console.log(existingData);
+            
+            let newData = transformItem(newItem)
+            console.log("neue Daten :" + newData);
+            
+            let newText = '\n[\n]//Hier kommt Code hin'
+            let updatedContent = existingData + newText
+            console.log(newText);
+            
+            let writeHttp = new XMLHttpRequest();
+            
+            writeHttp.open('PUT', '/assets/js/DB.js')
+            writeHttp.setRequestHeader('Access-Control-Allow-Origin', '*');
+            
+            writeHttp.send(updatedContent)
         }
+    }
+    xhr.onerror= function() {
+        alert("Verbindung fehlgeschlagen")
     }
 
     globalVariables.modalAddFilm.style.display = "none"
@@ -49,6 +71,10 @@ export function getMovieInDatabase() {
     globalVariables.divFilter.style.display = "initial"
     globalVariables.divFilter.classList.add("div__getFilter")
     */
+}
+
+const transformItem = (Item) => {
+    return Array.from(Object.values(Item))
 }
 
 
