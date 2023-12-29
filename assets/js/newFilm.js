@@ -36,33 +36,39 @@ export function getMovieInDatabase() {
 
     let http = new XMLHttpRequest();
 
-    http.open('GET', 'assets/js/DB.js', true)
+    http.open('PUT', 'http://http://127.0.0.1:8080/send-data')
+    http.setRequestHeader('Content-Type', 'application/json')
 
-    http.send();
+    http.send(JSON.stringify(transformItem(newItem)));
 
-    http.onload = function() {
+    http.onload = function () {
         if (http.status != 200) {
             alert(`Error ${http.status}`)
         } else {
+            /*
             let existingData = http.responseText
             console.log(existingData);
-            
+
             let newData = transformItem(newItem)
             console.log("neue Daten :" + newData);
-            
+
             let newText = '\n[\n]//Hier kommt Code hin'
             let updatedContent = existingData + newText
             console.log(newText);
-            
+
             let writeHttp = new XMLHttpRequest();
-            
+
             writeHttp.open('PUT', '/assets/js/DB.js')
             writeHttp.setRequestHeader('Access-Control-Allow-Origin', '*');
-            
-            writeHttp.send(updatedContent)
+            /*
+            writeHttp.setRequestHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+            writeHttp.setRequestHeader('Access-Control-Allow-Headers', 'Content-Type');
+            */
+
+            // writeHttp.send(updatedContent)
         }
     }
-    xhr.onerror= function() {
+    http.onerror = function () {
         alert("Verbindung fehlgeschlagen")
     }
 
