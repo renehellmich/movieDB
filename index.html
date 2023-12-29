@@ -17,6 +17,42 @@
         <button type="button" id="button_yearUp" class="button__filter divFilterDef">YEAR UP</button>
         <button type="button" id="button_yearDown" class="button__filter divFilterDef">YEAR DOWN</button>
         <button type="button" id="button_bestRate" class="button__filter divFilterDef">BEST RATE</button>
+        <button type="button" id="button_newFilm" class="divFilterDef">NEUER FILM</button>
+    </div>
+    <div class="div__addFilm">
+        <h2>Hier können Sie einen neuen Film eingeben</h2>
+        <div class="div__addDetails">
+            <div class="divInput">
+                <label for="newTitle">Title: </label>
+                <input type="text" name="inputTitle" id="newTitle">
+            </div>
+            <div class="divInput">
+                <label for="newYear">Erscheinungsjahr: </label>
+                <input type="text" name="inputYear" id="newYear">
+            </div>
+            <div class="divInput">
+                <label for="newAuthor">Produzent: </label>
+                <input type="text" name="inputAuthor" id="newAuthor">
+            </div>
+            <div class="divMovieTime">
+                <label for="newHours">Stunden: </label>
+                <input type="number" name="inputHours" id="newHours">
+                <label for="newMinutes">Minuten: </label>
+                <input type="number" name="inputMinutes" id="newMinutes">
+            </div>
+            <div class="divInput">
+                <label for="selectNewGenre">Genre: </label>
+                <select name="newGenre" id="selectNewGenre"></select>
+            </div>
+            <div class="divInput">
+                <label for="newRating">Bewertung: </label>
+                <input type="number" name="inputRating" id="newRating">
+            </div>
+        </div>
+        <div class="divButton">
+            <button type="button" id="button_addFilm">Film anlegen</button>
+            <button type="reset" id="buttonAddFilmRest">Reset</button>
+        </div>
     </div>
     <div class="div__Radio">
         <input type="radio" name="filter" id="filterText" value="filterText" checked>

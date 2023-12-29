@@ -16,3 +16,7 @@ export let radioOptions = {
     filterGenre: document.getElementById("filterGenre"),
     filterYear: document.getElementById("filterYear"),
 }
+
+export let modalVariables = {
+
+}

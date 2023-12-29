@@ -1,3 +1,5 @@
+@use 'variables' as var;
+
 @mixin displaySettings($display, $direction, $justify, $items, $gap) {
     display: $display;
     flex-direction: $direction;
@@ -17,6 +19,30 @@
     color: $color;
     background-color: $brackground;
 }
+
+@mixin divDescriptionNewMovie {
+    border: 2px solid rgba(black, 0.5);
+    padding: 4px 8px;
+    border-radius: 8px;
+}
+
+@mixin labelSetting {
+    @include fontSetting("", 1.25rem, bold);
+    padding: 4px 8px;
+    text-shadow: 2px 4px rgba((var.$color-orange), $alpha: 0.8)
+}
+
+@mixin inputSetting {
+
+}
+
+@mixin fontSetting($family, $size, $weight) {
+    font-family: $family;
+    font-size: $size;
+    font-weight: $weight;
+}
+
+
 
 // 206,215,138
 // 234,107,61

@@ -36,6 +36,9 @@ body .div__getFilter #searchString {
   grid-area: "searchString";
   grid-column-start: 1;
   grid-column-end: 3;
+  font-family: "";
+  font-size: 1rem;
+  font-weight: 400;
 }
 body .div__getFilter #genreSelection {
   grid-area: "genreSelection";
@@ -60,13 +63,106 @@ body .div__getFilter #button_yearDown {
 body .div__getFilter #button_bestRate {
   grid-area: "bestRate";
 }
+body .div__getFilter #button_newFilm {
+  background-color: rgb(234, 107, 61);
+  grid-area: "newFilm";
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
 body .div__getFilter .divFilterDef {
   padding: 8px 32px;
   border-radius: 16px;
   border: none;
+  font-family: "";
+  font-size: 1.25rem;
+  font-weight: bold;
 }
 body .div__getFilter .button__filter {
   border: 2px solid rgb(234, 107, 61);
+}
+body .div__addFilm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 32px 64px;
+  box-shadow: inset 0 0 32px black;
+  border: 4px solid rgb(234, 107, 61);
+  border-radius: 16px;
+}
+body .div__addFilm .div__addDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: "";
+  gap: 8px;
+  height: "";
+  min-width: "";
+  width: 100%;
+  max-width: "";
+}
+body .div__addFilm .div__addDetails .divInput {
+  display: grid;
+  grid-template-columns: 40% 60%;
+}
+body .div__addFilm .div__addDetails .divInput label {
+  font-family: "";
+  font-size: 1.25rem;
+  font-weight: bold;
+  padding: 4px 8px;
+  text-shadow: 2px 4px rgba(234, 107, 61, 0.8);
+}
+body .div__addFilm .div__addDetails .divInput input {
+  height: "";
+  min-width: "";
+  width: 100%;
+  max-width: "";
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-family: "";
+  font-size: 1rem;
+  font-weight: "";
+}
+body .div__addFilm .div__addDetails .divMovieTime {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: "";
+  gap: 8px;
+}
+body .div__addFilm .div__addDetails .divMovieTime label {
+  font-family: "";
+  font-size: 1.25rem;
+  font-weight: bold;
+  padding: 4px 8px;
+  text-shadow: 2px 4px rgba(234, 107, 61, 0.8);
+}
+body .div__addFilm .div__addDetails .divMovieTime input {
+  height: "";
+  min-width: "";
+  width: 64px;
+  max-width: "";
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+body .div__addFilm .div__addDetails #selectNewGenre {
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+body .div__addFilm #button_addFilm, body .div__addFilm #buttonAddFilmRest {
+  background-color: rgb(234, 107, 61);
+  padding: 8px 32px;
+  border-radius: 16px;
+  border: none;
+  font-family: "";
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: black;
+  text-shadow: 2px 4px rgba(255, 255, 255, 0.8);
 }
 body .section__movies {
   display: flex;
