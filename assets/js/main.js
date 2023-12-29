@@ -135,8 +135,6 @@ const searchMovie = () => {
                 } else {
                     backValue = false;
                 }
-
-                
             })
 
             console.log(filterArr);
@@ -148,10 +146,27 @@ const searchMovie = () => {
             console.log(checkedArr);
 
             checkedMap = checkedArr.map(option => option.value)
-            console.log(checkedMap.join());
+            console.log("checkedMap :" + checkedMap);
 
 
-            filterArr = movies.filter(movie => movie[1].includes(checkedMap.join()))
+            filterArr = movies.filter(movie => {
+                
+                const genreArr = [] 
+                genreArr.push(movie[1])
+                console.log("GenreArr :" + genreArr);
+
+                genreArr.some(e => checkedMap.includes(e))
+                ? backValue = true
+                : backValue = false;
+
+                // console.log(backValue);
+                if (backValue === true) {
+                    return movie;
+                } else {
+                    backValue = false;
+                }
+            })
+
             console.log(filterArr);
             sendArrtoDiv(filterArr);
 
