@@ -15,14 +15,20 @@ export function getMovieInDatabase() {
 
     loadMovieData();
 
+    const genreArr = Array.from(globalVariables.newGenreSelection.childNodes).filter(e => e.selected).map(e => e.value)
+
+    /*
+    console.log(genreArr);
     console.log(modalVariables);
     console.log(modalVariables.genre);
+    */
+
     const newItem = {
         titel: modalVariables.title.value,
         year: modalVariables.year.value,
         author: modalVariables.author.value,
-        length: `${modalVariables.hours.value}h ${modalVariables.minutes.value}`,
-        genre: modalVariables.genre.map(e => e.selected),
+        length: `${modalVariables.hours.value}h ${modalVariables.minutes.value}min`,
+        genre: genreArr,
         rating: modalVariables.rating.value
     }
 
