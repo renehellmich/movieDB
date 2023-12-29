@@ -32,11 +32,11 @@ export function getMovieInDatabase() {
         rating: modalVariables.rating.value
     }
 
-    console.log(newItem);
+    console.log(transformItem(newItem));
 
     let http = new XMLHttpRequest();
 
-    http.open('PUT', 'http://http://127.0.0.1:8080/send-data')
+    http.open('PUT', 'http://127.0.0.1:8080/send-data')
     http.setRequestHeader('Content-Type', 'application/json')
 
     http.send(JSON.stringify(transformItem(newItem)));
