@@ -18,9 +18,9 @@ body {
         @include mix.HW("", "", "", "");
         @include mix.displaySettings(grid, "", "", "", "");
         grid-template-columns: repeat(3, 1fr);
-        grid-template-areas: 
-        "searchString searchString searchButton"
-        "yearUp yearDown bestRate";
+        grid-template-areas:
+            "searchString searchString searchButton"
+            "yearUp yearDown bestRate";
         flex-wrap: wrap;
 
         column-gap: 8px;
@@ -32,46 +32,55 @@ body {
             grid-column-end: 3;
             @include mix.fontSetting("", 1rem, 400);
         }
+
         #genreSelection {
             grid-area: "genreSelection";
             grid-column-start: 1;
             grid-column-end: 3;
         }
+
         #yearSelection {
             grid-area: "yearSelection";
             grid-column-start: 1;
             grid-column-end: 3;
         }
+
         #button_search {
             grid-area: "searchButton";
             background-color: var.$color-orange;
         }
+
         #button_yearUp {
             grid-area: "yearUp"
         }
+
         #button_yearDown {
             grid-area: "yearDown"
         }
+
         #button_bestRate {
             grid-area: "bestRate"
         }
+
         #button_newFilm {
             background-color: var.$color-orange;
             grid-area: "newFilm";
             grid-column-start: 1;
             grid-column-end: 4;
         }
-        
+
         .divFilterDef {
             padding: 8px 32px;
             border-radius: 16px;
             border: none;
             @include mix.fontSetting("", 1.25rem, bold);
         }
-        .button__filter{
+
+        .button__filter {
             border: 2px solid var.$color-orange;
         }
     }
+
     .div__addFilm {
 
         @include mix.displaySettings(flex, column, center, center, 16px);
@@ -79,6 +88,13 @@ body {
         box-shadow: inset 0 0 32px black;
         border: 4px solid var.$color-orange;
         border-radius: 16px;
+
+        /*
+        position: fixed;
+        */
+        display: none;
+        z-index: 1;
+        overflow: auto;
 
         .div__addDetails {
             @include mix.displaySettings(flex, column, flex-start, "", 8px);
@@ -98,6 +114,7 @@ body {
                     @include mix.fontSetting("", 1rem, "");
                 }
             }
+
             .divMovieTime {
                 @include mix.displaySettings(flex, row, center, "", 8px);
 
@@ -110,23 +127,29 @@ body {
                     @include mix.divDescriptionNewMovie;
                 }
             }
+
             #selectNewGenre {
                 @include mix.divDescriptionNewMovie;
             }
         }
 
-        #button_addFilm, #buttonAddFilmRest {
-            background-color: var.$color-orange;
-            padding: 8px 32px;
-            border-radius: 16px;
-            border: none;
-            @include mix.fontSetting("", 1.25rem, bold);
-            color: black;
-            text-shadow: 2px 4px rgba(white, 0.8)
+        .divButton {
 
+            @include mix.displaySettings(flex, row, center, "", 8px);
+
+            #buttonAddFilm,
+            #buttonAddFilmRest {
+                background-color: var.$color-orange;
+                padding: 8px 32px;
+                border-radius: 16px;
+                border: none;
+                @include mix.fontSetting("", 1.25rem, bold);
+                color: black;
+                text-shadow: 2px 4px rgba(white, 0.8)
+            }
         }
     }
-    
+
     .section__movies {
         @include mix.displaySettings(flex, row, center, center, 16px);
         flex-wrap: wrap;
@@ -140,7 +163,7 @@ body {
             @include mix.color(black, var.$div-background);
 
             padding: var.$div-padding;
-            
+
             .ContainerDefChild {
                 text-align: center;
                 background-color: rgba(var.$div-background, 0);

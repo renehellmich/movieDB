@@ -1,7 +1,7 @@
 import { movies } from './DB.js';
 import { /*searchFunction,*/ selectOptions } from './options.js';
-import { globalVariables, radioOptions } from './variables.js';
-
+import { globalVariables, radioOptions, modalVariables } from './variables.js';
+import { getMovieInDatabase, openAddMovie } from './newFilm.js';
 
 // Option für Genre generieren
 
@@ -14,6 +14,7 @@ const getSelectOptions = () => {
     genreArr.forEach(genre => {
         // console.log(genre);
         genreSelection.innerHTML += `<option class='optionGenre' value='${genre}'>${genre[0].toUpperCase()}${genre.slice(1)}</option>`
+        globalVariables.newGenreSelection.innerHTML += `<option class='newGenre' value='${genre}'>${genre[0].toUpperCase()}${genre.slice(1)}</option>`
     });
 
     yearArr.forEach(year => {
@@ -222,6 +223,21 @@ globalVariables.buttonSearch.addEventListener("click", () => searchMovie());
 globalVariables.buttonYearUp.addEventListener("click", () => yearUp());
 globalVariables.buttonYearDown.addEventListener("click", () => yearDown());
 globalVariables.buttonBestRate.addEventListener("click", () => bestRate());
+
+globalVariables.buttonNewFilm.addEventListener("click", () => openAddMovie());
+globalVariables.buttonDropMovie.addEventListener("click", () => getMovieInDatabase());
+
+window.onclick = function(event) {
+
+    if (event.target == globalVariables.divAddFilm ) {
+        globalVariables.divAddFilm.style.display = "none"
+    }
+    /*
+    globalVariables.divFilter.style.display = "block"
+    globalVariables.divRadio.style.display = "block"
+    globalVariables.sectionMovies.style.display = "block"
+    */
+}
 
 // radioOptions ist ein Objekt, deshalb muss es mit Object angesprochen werden. Mit .values erzeugen wir ein Array aus den Werten von radioOptions
 Object.values(radioOptions).forEach(option => {

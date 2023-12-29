@@ -90,6 +90,12 @@ body .div__addFilm {
   box-shadow: inset 0 0 32px black;
   border: 4px solid rgb(234, 107, 61);
   border-radius: 16px;
+  /*
+  position: fixed;
+  */
+  display: none;
+  z-index: 1;
+  overflow: auto;
 }
 body .div__addFilm .div__addDetails {
   display: flex;
@@ -153,7 +159,15 @@ body .div__addFilm .div__addDetails #selectNewGenre {
   padding: 4px 8px;
   border-radius: 8px;
 }
-body .div__addFilm #button_addFilm, body .div__addFilm #buttonAddFilmRest {
+body .div__addFilm .divButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: "";
+  gap: 8px;
+}
+body .div__addFilm .divButton #buttonAddFilm,
+body .div__addFilm .divButton #buttonAddFilmRest {
   background-color: rgb(234, 107, 61);
   padding: 8px 32px;
   border-radius: 16px;
